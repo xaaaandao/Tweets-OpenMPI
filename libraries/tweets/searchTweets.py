@@ -31,7 +31,7 @@ def allTweets(topic):
 	#O twitter so permite 200 tweets, mas utilizando o Cursor voce pega 3200
 	#Cada pagina tem 200, e temos 16 paginas entao 200 x 16 = 3200
 	for i in range(1, 17):
-		for tweet in tweepy.Cursor(api.search, q="utfpr", count=200).pages(i):
+		for tweet in tweepy.Cursor(api.search, q=topic, count=200).pages(i):
 			print tweet
 
 #Funcao main 
