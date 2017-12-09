@@ -7,8 +7,8 @@
 #include <string.h>
 #include "/home/xandao/Tweets-OpenMPI/libraries/list/manipulateList.h"
 
-#define SIZESTRING 3276
-
+int countLinesOfFile(char*);
+List *loadTweets(char*);
 List *parserJSON(char*);
 
 #endif /* MANIPULATEFILES_H */

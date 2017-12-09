@@ -9,10 +9,15 @@
 #define ANSI_COLOR_RED "\x1b[31m"
 #define ANSI_COLOR_GREEN "\x1b[32m"
 #define ANSI_COLOR_RESET "\x1b[0m"
-#define SIZESTRING 3276
+#define SIZESTRING 280
+
+#include "/home/xandao/Tweets-OpenMPI/libraries/string/manipulateString.h"
 
 typedef struct node{
-	char tweet[SIZESTRING];
+	char originalTweet[SIZESTRING];
+	char cleanTweet[SIZESTRING];
+	int countWordOriginalTweet;
+	int countWordCleanTweet;
 	struct node *next;
 }Node;
 
@@ -21,6 +26,8 @@ typedef struct{
 	int size;
 }List;
 
+void getTweet(List*, int);
+bool existsTweet(List*, char*);
 void cleanList(List*);
 void initializeList(List*);
 bool emptyList(List*);

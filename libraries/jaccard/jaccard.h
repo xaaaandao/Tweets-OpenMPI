@@ -3,7 +3,8 @@
 
 #include "/home/xandao/Tweets-OpenMPI/libraries/string/manipulateString.h"
 #include "/home/xandao/Tweets-OpenMPI/libraries/list/manipulateList.h"
+#include "/home/xandao/Tweets-OpenMPI/libraries/files/manipulateFiles.h"
 
-void indexOfJaccard(List*);
+List *indexOfJaccard(List*, char*);
 
 #endif /* JACCARD_H */
