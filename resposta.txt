@@ -1,0 +1,497 @@
+[32mcarregando o arquivo ...
+[32mintersectionTweets: 10
+unionTweets: 19
+similiarity 0.53
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy 
+
+intersectionTweets: 11
+unionTweets: 19
+similiarity 0.58
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy 
+
+intersectionTweets: 17
+unionTweets: 26
+similiarity 0.65
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy  big data analytics defining new malware . 
+
+intersectionTweets: 11
+unionTweets: 28
+similiarity 0.39
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy  dave millier ceo of sentry metrics a toronto . 
+
+intersectionTweets: 11
+unionTweets: 19
+similiarity 0.58
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy 
+
+intersectionTweets: 21
+unionTweets: 26
+similiarity 0.81
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy  big data analytics defining new malware . 
+
+intersectionTweets: 19
+unionTweets: 24
+similiarity 0.79
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy  big data analytics defining n. 
+
+intersectionTweets: 21
+unionTweets: 26
+similiarity 0.81
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy  big data analytics defining new malware . 
+
+intersectionTweets: 13
+unionTweets: 24
+similiarity 0.54
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy via &gt;storing data network level\n#infosec 
+
+intersectionTweets: 21
+unionTweets: 26
+similiarity 0.81
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy  big data analytics defining new malware . 
+
+intersectionTweets: 11
+unionTweets: 19
+similiarity 0.58
+f: big data analytics defining new malware strategy  big data analytics defining new. 
+s: big data analytics defining new malware strategy  
+
+intersectionTweets: 12
+unionTweets: 28
+similiarity 0.43
+f: avg anti-virus free edition review  pc advisor avg anti-virus free edition reviewpc advisorby simon . 
+s: avg anti-virus free build avg anti-virus free  это мощный и бесплатный антивирусный п. 
+
+intersectionTweets: 9
+unionTweets: 20
+similiarity 0.45
+f: avg anti-virus free edition review  pc advisor avg anti-virus free edition reviewpc advisorby simon . 
+s: avg anti-virus free edition review 
+
+intersectionTweets: 17
+unionTweets: 31
+similiarity 0.55
+f: avg anti-virus free edition review  pc advisor avg anti-virus free edition reviewpc advisorby simon . 
+s: review avg anti-virus free edition virus malware hacking ... avg anti-virus free edition was pcworld's. + 
+
+intersectionTweets: 11
+unionTweets: 24
+similiarity 0.46
+f: avg anti-virus free edition review  pc advisor avg anti-virus free edition reviewpc advisorby simon . 
+s: antivirus news avg anti-virus free edition review  pc advisor 
+
+intersectionTweets: 9
+unionTweets: 20
+similiarity 0.45
+f: avg anti-virus free edition review  pc advisor avg anti-virus free edition reviewpc advisorby simon . 
+s: avg anti-virus free edition review 
+
+intersectionTweets: 12
+unionTweets: 28
+similiarity 0.43
+f: avg anti-virus free edition review  pc advisor avg anti-virus free edition reviewpc advisorby simon . 
+s: avg internet security avg internet security business edition avg anti-virus pro avg internet. 
+
+intersectionTweets: 10
+unionTweets: 26
+similiarity 0.38
+f: avg anti-virus free edition review  pc advisor avg anti-virus free edition reviewpc advisorby simon . 
+s: download avg anti-virus free edition anti-virus scanners windows downloads  yahoo downloads 
+
+intersectionTweets: 12
+unionTweets: 21
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm 
+
+intersectionTweets: 7
+unionTweets: 19
+similiarity 0.37
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious websites have more malware than porn sites 
+
+intersectionTweets: 14
+unionTweets: 28
+similiarity 0.50
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports the annual internet security threat r. 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: what? religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 7
+unionTweets: 22
+similiarity 0.32
+f: religious sites carry more malware than porn sites security firm reports 
+s: internet security firm sees more malware on religious websites than porn 
+
+intersectionTweets: 12
+unionTweets: 22
+similiarity 0.55
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more than porn sites symantic security firm reports 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports pcworld 
+
+intersectionTweets: 9
+unionTweets: 24
+similiarity 0.38
+f: religious sites carry more malware than porn sites security firm reports 
+s: internet security firm sees more malware on religious websites than porn sites via 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: *snicker* religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 13
+unionTweets: 24
+similiarity 0.54
+f: religious sites carry more malware than porn sites security firm reports 
+s: interesting finding religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 11
+unionTweets: 21
+similiarity 0.52
+f: religious sites carry more malware than porn sites security firm reports 
+s: reports religious sites carry more malware than porn sites via 
+
+intersectionTweets: 14
+unionTweets: 28
+similiarity 0.50
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports the annual internet security threat r. 
+
+intersectionTweets: 9
+unionTweets: 19
+similiarity 0.47
+f: religious sites carry more malware than porn sites security firm reports 
+s: more malware on religious sites than porn sites 
+
+intersectionTweets: 13
+unionTweets: 22
+similiarity 0.59
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports   
+
+intersectionTweets: 9
+unionTweets: 24
+similiarity 0.38
+f: religious sites carry more malware than porn sites security firm reports 
+s: internet security firm sees more malware on religious websites than porn sites via 
+
+intersectionTweets: 13
+unionTweets: 26
+similiarity 0.50
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports via &gt;&gt;amateurs v professionals 
+
+intersectionTweets: 8
+unionTweets: 22
+similiarity 0.36
+f: religious sites carry more malware than porn sites security firm reports 
+s: firm claims that religious websites can carry more than porn sites 
+
+intersectionTweets: 10
+unionTweets: 22
+similiarity 0.45
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious and ideological sites carry more malware than porn sites via 
+
+intersectionTweets: 11
+unionTweets: 29
+similiarity 0.38
+f: religious sites carry more malware than porn sites security firm reports 
+s: study religious sites offer more malware than porn sites in a surprising report security firm symantec says t. 
+
+intersectionTweets: 13
+unionTweets: 26
+similiarity 0.50
+f: religious sites carry more malware than porn sites security firm reports 
+s: who'd have thought it religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 9
+unionTweets: 23
+similiarity 0.39
+f: religious sites carry more malware than porn sites security firm reports 
+s: internet security firm sees more malware on religious websites than porn sites 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports (via 
+
+intersectionTweets: 10
+unionTweets: 21
+similiarity 0.48
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious and ideological sites carry more malware than porn sites 
+
+intersectionTweets: 14
+unionTweets: 26
+similiarity 0.54
+f: religious sites carry more malware than porn sites security firm reports 
+s: news religious sites carry more malware than porn sites security firm reports  religious and ideological. 
+
+intersectionTweets: 7
+unionTweets: 19
+similiarity 0.37
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious websites have more malware than porn sites 
+
+intersectionTweets: 11
+unionTweets: 29
+similiarity 0.38
+f: religious sites carry more malware than porn sites security firm reports 
+s: study religious sites offer more malware than porn sites  san francisco in a surprising report security firm sy. 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: amazing religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 7
+unionTweets: 19
+similiarity 0.37
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious websites have more malware than porn sites 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: voilà religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports  pcworld 
+
+intersectionTweets: 12
+unionTweets: 22
+similiarity 0.55
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more than porn sites security firm reports https://t.co/snmh9dqj 
+
+intersectionTweets: 13
+unionTweets: 24
+similiarity 0.54
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports  pc advisor 
+
+intersectionTweets: 11
+unionTweets: 29
+similiarity 0.38
+f: religious sites carry more malware than porn sites security firm reports 
+s: study religious sites offer more malware than porn sites  san francisco in a surprising report security firm sy. 
+
+intersectionTweets: 6
+unionTweets: 19
+similiarity 0.32
+f: religious sites carry more malware than porn sites security firm reports 
+s: interesting religious websites contain more than porn sites  
+
+intersectionTweets: 13
+unionTweets: 25
+similiarity 0.52
+f: religious sites carry more malware than porn sites security firm reports 
+s: “@georgevhulme religious sites carry more malware than porn sites security firm reports pcworld weird 
+
+intersectionTweets: 14
+unionTweets: 31
+similiarity 0.45
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports the annual internet security threat report from symantec a. 
+
+intersectionTweets: 14
+unionTweets: 28
+similiarity 0.50
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports the annual internet security threat r. 
+
+intersectionTweets: 11
+unionTweets: 27
+similiarity 0.41
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry three times more malware threats than pornography sites according to security firm symantec 
+
+intersectionTweets: 13
+unionTweets: 25
+similiarity 0.52
+f: religious sites carry more malware than porn sites security firm reports 
+s: pc-world news religious sites carry more malware than porn sites security firm reports the… 
+
+intersectionTweets: 13
+unionTweets: 28
+similiarity 0.46
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports why do you think that is 
+
+intersectionTweets: 13
+unionTweets: 24
+similiarity 0.54
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports  pc world 
+
+intersectionTweets: 8
+unionTweets: 26
+similiarity 0.31
+f: religious sites carry more malware than porn sites security firm reports 
+s: symantec more malware on religious sites than pxxx sites \"according to symantec's annual internet se. 
+
+intersectionTweets: 13
+unionTweets: 26
+similiarity 0.50
+f: religious sites carry more malware than porn sites security firm reports 
+s: niets is wat hetvlijkt religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 11
+unionTweets: 29
+similiarity 0.38
+f: religious sites carry more malware than porn sites security firm reports 
+s: \"religious sites carry more malware than porn sites\" lol we will pan religious sites for security issues :d 
+
+intersectionTweets: 8
+unionTweets: 20
+similiarity 0.40
+f: religious sites carry more malware than porn sites security firm reports 
+s: symantec more malware on religious sites than pxxx sites 
+
+intersectionTweets: 9
+unionTweets: 24
+similiarity 0.38
+f: religious sites carry more malware than porn sites security firm reports 
+s: internet security firm sees more malware on religious websites than porn sites via 
+
+intersectionTweets: 12
+unionTweets: 26
+similiarity 0.46
+f: religious sites carry more malware than porn sites security firm reports 
+s: take that porn haters \"religious sites carry more malware than porn sites security firm reports\" 
+
+intersectionTweets: 10
+unionTweets: 21
+similiarity 0.48
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious and ideological sites carry more malware than porn sites 
+
+intersectionTweets: 11
+unionTweets: 23
+similiarity 0.48
+f: religious sites carry more malware than porn sites security firm reports 
+s: study religious sites offer more malware than porn sites security firm symantec 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports pcworld 
+
+intersectionTweets: 9
+unionTweets: 19
+similiarity 0.47
+f: religious sites carry more malware than porn sites security firm reports 
+s: more malware on religious sites than porn sites 
+
+intersectionTweets: 13
+unionTweets: 28
+similiarity 0.46
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports – pcworld help net securityreligious . 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: pcworld religious sites carry more malware than porn sites security firm reports 
+
+intersectionTweets: 13
+unionTweets: 24
+similiarity 0.54
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports  pcworld itbusi. 
+
+intersectionTweets: 13
+unionTweets: 28
+similiarity 0.46
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports pcworld (an attention grabbing headline :) 
+
+intersectionTweets: 10
+unionTweets: 25
+similiarity 0.40
+f: religious sites carry more malware than porn sites security firm reports 
+s: more malware on religious sites than porn sites  pc magazine siliconrepublic.commore malware on r. 
+
+intersectionTweets: 10
+unionTweets: 19
+similiarity 0.53
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites 
+
+intersectionTweets: 13
+unionTweets: 26
+similiarity 0.50
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports pcworld hgb knows why 
+
+intersectionTweets: 9
+unionTweets: 26
+similiarity 0.35
+f: religious sites carry more malware than porn sites security firm reports 
+s: internet security firm sees more malware on religious websites than porn sites [caption id=\"attachment_301711\" . 
+
+intersectionTweets: 10
+unionTweets: 21
+similiarity 0.48
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious and ideological sites carry more malware than porn sites  
+
+intersectionTweets: 12
+unionTweets: 22
+similiarity 0.55
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports. 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports  pcworld 
+
+intersectionTweets: 12
+unionTweets: 21
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm 
+
+intersectionTweets: 13
+unionTweets: 23
+similiarity 0.57
+f: religious sites carry more malware than porn sites security firm reports 
+s: religious sites carry more malware than porn sites security firm reports via 
+
+intersectionTweets: 12
+unionTweets: 22
+similiarity 0.55
+f: religious sites carry more malware than porn sites security firm reports 

@@ -32,11 +32,7 @@ void loadWord(char* text, char array[][SIZESTRING]){
 }
 
 void removeCharacter(char *word){
-	if(word[strlen(word) - 1] == ':')
-		word[strlen(word) - 1] = '\0';
-	else if(word[strlen(word) - 1] == ',')
-		word[strlen(word) - 1] = '\0';
-	else if(word[strlen(word) - 1] == '-')
+	if((word[strlen(word) - 1] == ':') || (word[strlen(word) - 1] == ',') || (word[strlen(word) - 1] == '-'))
 		word[strlen(word) - 1] = '\0';
 	else if(word[strlen(word) - 1] == '.' && word[strlen(word) - 2] == '.')
 		word[strlen(word) - 2] = '\0';
@@ -44,15 +40,9 @@ void removeCharacter(char *word){
 		word[strlen(word) - 3] = '\0';
 	else if(word[strlen(word) - 1] == '.' && word[strlen(word) - 2] == '.' && word[strlen(word) - 3] == '.' && word[strlen(word) - 4] == ',')
 		word[strlen(word) - 4] = '\0';
-	else if(word[strlen(word) - 1] == '.')
+	else if((word[strlen(word) - 1] == '.') || (word[strlen(word) - 1] == '!'))
 		word[strlen(word) - 1] = '\0';
-	else if(word[strlen(word) - 1] == '!')
-		word[strlen(word) - 1] = '\0';
-	else if(word[strlen(word) - 1] == '?')
-		word[strlen(word) - 1] = '\0';
-	else if(word[strlen(word) - 1] == '\n')
-		word[strlen(word) - 1] = '\0';
-	else if(word[strlen(word) - 1] == '\t')
+	else if((word[strlen(word) - 1] == '?') || (word[strlen(word) - 1] == '\n') || (word[strlen(word) - 1] == '\t'))
 		word[strlen(word) - 1] = '\0';
 }
 
@@ -71,6 +61,12 @@ bool allowWord(char *word){
 	if(stringEquals(word, "&gt") || stringEquals(word, "&gt;") || stringEquals(word, "-&gt") || stringEquals(word, "-&gt;"))
 		return false;
 	if(stringEquals(word, "&lt") || stringEquals(word, "&lt;") || stringEquals(word, "-&lt") || stringEquals(word, "-&lt;")  || stringEquals(word, "&lt;="))
+		return false;
+	if(stringEquals(word, "e&amp;p") || stringEquals(word, "\"/?-s\"") || stringEquals(word, "....") || stringEquals(word, ".cc")  || stringEquals(word, "&lt;&lt;"))
+		return false;
+	if(stringEquals(word, ";)") || stringEquals(word, ":/ ") || stringEquals(word, "^dg") || stringEquals(word, "&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;the")  || stringEquals(word, ",!!"))
+		return false;
+	if(stringEquals(word, "—") || stringEquals(word, "▸") || stringEquals(word, "👤") || stringEquals(word, "•") || stringEquals(word, "…"))
 		return false;
 	if((strstr(word, "http://t.co/") != NULL) || (strstr(word, "http://bit.ly/") != NULL))
 		return false;
@@ -105,8 +101,7 @@ char *filterWordsOfText(char *text){
 			strcat(result, " ");
 		}
 	}
-	printf("\no: %s\n", text);
-	printf("f: %s\n", result);
+
 	return result;
 }
 

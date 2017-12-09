@@ -47,14 +47,15 @@ int main(int argc, char* argv[]){
 				printf(ANSI_COLOR_GREEN "carregando o arquivo ...\n" ANSI_COLOR_GREEN);
 				
 				/* Se for NULL significa que tem algo de errado no arquivo */
-				/*if(indexOfJaccard(listOfTweets, argv[2]) == NULL){
+				if(indexOfJaccard(listOfTweets, argv[2]) == NULL){
 					printf(ANSI_COLOR_RED "erro no arquivo %s\n" ANSI_COLOR_RESET, argv[2]);
 				} else {
 					printf("Pode prosseguir\n");
-				}*/
+				}
+				//printList(listOfTweets);
 
 				/* Apaga o arquivo que só contém os tweets, sem estar no formato de JSON */
-				//system("rm teste.txt");
+				system("rm teste.txt");
 			}
 
 		/* Se não for nenhum dos parâmetros -q ou -f ERRO! */

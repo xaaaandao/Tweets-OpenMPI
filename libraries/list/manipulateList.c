@@ -67,7 +67,7 @@ void printList(List *list){
 			printf("Tweet original: %s \n", printNode -> originalTweet);
 			printf("Quantidade de palavras tweet original: %d\n", printNode -> countWordOriginalTweet);
 			printf("Tweet filtrado: %s \n", printNode -> cleanTweet);
-			printf("Quantidade de palavras tweet filtrado: %d\n", printNode -> countWordCleanTweet);
+			printf("Quantidade de palavras tweet filtrado: %d\n\n", printNode -> countWordCleanTweet);
 			printNode = printNode -> next;
 		}
 	}    
