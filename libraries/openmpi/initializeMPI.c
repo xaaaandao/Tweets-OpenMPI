@@ -1,33 +1,38 @@
 #include "initializeMPI.h"
 
+void *waitMessage(void *args){
+    char confirmMessage[ALLSIMILIARITY];
+    int type = 99;
+    memset(confirmMessage, 0, ALLSIMILIARITY);
+    MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, currentSlave, type, MPI_COMM_WORLD, &statusGlobal);
+    printf("%s\n", confirmMessage);
+    strcat(result, confirmMessage);
+    strcat(result, "\n\n\n");
+    //printf("\n");
+}
+
 void initializeMPI(List* listOfTweets){
 	/* Inicializa o ambiente de MPI */
 	MPI_Init(NULL, NULL);
 
 	/* Pega a quantidade de processos e o ranking */
+    char confirmMessage[ALLSIMILIARITY];
     int countProcess, countTweets = listOfTweets -> size;
     int rank, type = 99;
     MPI_Status status;
     MPI_Comm_size(MPI_COMM_WORLD, &countProcess);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+    /* Como MPI_Recv é bloqueante precisamos de um jeito de mandar para todos */
     /* É master */
     if(rank == 0){
-        printf("sou mestre\n");
-        /**
-        1 - Se só tem um processo, então sou eu mesmo o mestre que vai ter que executar
-        2 - Se tem mais de um processo, divido em parte iguais;
-        3 - Envio a mensagem qual range eu quero que o escravo processe;
-        4 - O escravo recebe processa e depois disso retorna ao pai falando quais são similiares
-        5 - O pai recebe a mensagem;
-        */
         /* Se for só um processo eu mesmo tenho que executar */
         if(countProcess == 1){
-
+            ListSimiliarity *listOfSimiliar = indexOfJaccard(listOfTweets);
+            printListSimiliarity(listOfSimiliar);
         /* Se for mais de um processo dividido */
         } else {
             char message[SIZESTRING];
-            char confirmMessage[ALLSIMILIARITY];
             int start = 0, end;
             /* Se for 2 processos signfica que temos 1 sendo o mestre e o 2 segundo escravo */
             if(countProcess == 2){
@@ -40,7 +45,7 @@ void initializeMPI(List* listOfTweets){
                 int i, divide = countTweets / (countProcess - 1);
                 int rest;
                 end = divide - 1;
-                char c;
+                //char c;
                 for(i = 1; i < countProcess; i++){
                     if((i == countProcess - 1) && ((countProcess - 1) % 2 != 0)){
                         end = countTweets - 1;
@@ -48,13 +53,22 @@ void initializeMPI(List* listOfTweets){
                     memset(message, 0, SIZESTRING);
                     sprintf(message, "%d-%d", start, end);
                     MPI_Send(message, strlen(message), MPI_CHAR, i, type, MPI_COMM_WORLD);
-                    MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, i, type, MPI_COMM_WORLD, &status);
-                    printf("%s\n", confirmMessage);
-                    scanf(" %c", &c);
+                    //MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, i, type, MPI_COMM_WORLD, &status);
+                    //printf("%s\n", confirmMessage);
+                    //scanf(" %c", &c);
                     start = end + 1;
                     end = start + divide;
                     end--;
                 }
+
+                pthread_t receiveResult[countProcess];
+                for(i = 1; i < countProcess; i++){
+                    currentSlave = i;
+                    statusGlobal = status;
+                    pthread_create(&receiveResult[i], NULL, waitMessage, NULL);
+                    pthread_join(receiveResult[i], NULL);
+                }
+
             }
         }
     /* É escravo */
@@ -71,5 +85,8 @@ void initializeMPI(List* listOfTweets){
     
     /* Finaliza o ambiente do MPI */
     MPI_Finalize();
-
+    //printf("%s\n", result);
+    char c;
+    scanf(" %c", &c);
+    printf("%s\n", result);
 }
