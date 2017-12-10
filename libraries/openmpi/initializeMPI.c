@@ -1,17 +1,12 @@
 #include "initializeMPI.h"
 
-bool partitionEqual(int countTweets, int countProcess){
-    if(countTweets % countProcess == 0)
-        return true;
-    return false;
-}
-
-void initializeMPI(int countTweets){
+void initializeMPI(List* listOfTweets){
 	/* Inicializa o ambiente de MPI */
 	MPI_Init(NULL, NULL);
 
 	/* Pega a quantidade de processos e o ranking */
-    int countProcess, rank, type = 99;
+    int countProcess, countTweets = listOfTweets -> size;
+    int rank, type = 99;
     MPI_Status status;
     MPI_Comm_size(MPI_COMM_WORLD, &countProcess);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -32,67 +27,46 @@ void initializeMPI(int countTweets){
         /* Se for mais de um processo dividido */
         } else {
             char message[SIZESTRING];
-            char confirmMessage[SIZESTRING];
+            char confirmMessage[ALLSIMILIARITY];
             int start = 0, end;
             /* Se for 2 processos signfica que temos 1 sendo o mestre e o 2 segundo escravo */
             if(countProcess == 2){
                 end = countTweets - 1;
                 sprintf(message, "%d-%d", start, end);
-                printf("message: %s\n", message);
                 MPI_Send(message, strlen(message), MPI_CHAR, 1, type, MPI_COMM_WORLD); 
                 MPI_Recv(confirmMessage, SIZESTRING, MPI_CHAR, 1, type, MPI_COMM_WORLD, &status);
+                printf("%s\n", confirmMessage);
             } else {
                 int i, divide = countTweets / (countProcess - 1);
                 int rest;
                 end = divide - 1;
+                char c;
                 for(i = 1; i < countProcess; i++){
                     if((i == countProcess - 1) && ((countProcess - 1) % 2 != 0)){
                         end = countTweets - 1;
                     }
-                    printf("%d-%d\n", start, end);
+                    memset(message, 0, SIZESTRING);
+                    sprintf(message, "%d-%d", start, end);
+                    MPI_Send(message, strlen(message), MPI_CHAR, i, type, MPI_COMM_WORLD);
+                    MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, i, type, MPI_COMM_WORLD, &status);
+                    printf("%s\n", confirmMessage);
+                    scanf(" %c", &c);
                     start = end + 1;
                     end = start + divide;
                     end--;
                 }
             }
-            /*int i, divide = countTweets / (countProcess - 1);
-            int start = 0, end;
-            bool messageEqual = partitionEqual(countTweets, countProcess);
-            for (i = 1; i < countProcess; i++){
-                if(!messageEqual){
-                    if(i == countProcess - 1){
-                        end = (divide * i) - countTweets;
-                    }
-                    printf("%d - %d\n", start, end);
-                    start = end + 1;
-                    end = end + divide;
-                } else {
-                    printf("%d - %d\n", start, end);
-                    start = end + 1;
-                    end = end + divide;
-                }
-            }*/
         }
-        /*int i, divide = countTweets / (countProcess - 1);
-        int start = 0, end;
-        bool messageEqual = partitionEqual(countTweets, countProcess);
-        for (i = 1; i < countProcess; i++){
-            if(!messageEqual){
-                if(i == countProcess - 1){
-                    end = (divide * i) - countTweets;
-                }
-                printf("%d - %d\n", start, end);
-                start = end + 1;
-                end = end + divide;
-            } else {
-                printf("%d - %d\n", start, end);
-                start = end + 1;
-                end = end + divide;
-            }
-        }*/
     /* É escravo */
     } else {
-        printf("sou escravo\n");
+        char range[SIZESTRING], messageSimiliarity[ALLSIMILIARITY];
+        memset(range, 0, SIZESTRING);
+        MPI_Recv(range, SIZESTRING, MPI_CHAR, 0, type, MPI_COMM_WORLD, &status); 
+        List *slaveTweets = specificTweets(listOfTweets, range);
+        ListSimiliarity *listOfSimiliar = indexOfJaccard(slaveTweets);
+        memset(messageSimiliarity, 0, ALLSIMILIARITY);
+        strcpy(messageSimiliarity, getSimiliarity(listOfSimiliar));
+        MPI_Send(messageSimiliarity, strlen(messageSimiliarity), MPI_CHAR, 0, type, MPI_COMM_WORLD);
     }
     
     /* Finaliza o ambiente do MPI */

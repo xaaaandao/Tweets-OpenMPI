@@ -45,7 +45,8 @@ int main(int argc, char* argv[]){
 
 			/* Caso contrário, é um JSON */
 			} else {
-				initializeMPI(listOfTweets -> size);
+				initializeMPI(listOfTweets);
+				//printList(listOfTweets);
 				/*ListSimiliarity *listOfSimiliar = indexOfJaccard(listOfTweets, argv[2]);
 				
 				/* Se for nenhum significa que tem algo de errado no arquivo */

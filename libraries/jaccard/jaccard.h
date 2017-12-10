@@ -5,8 +5,6 @@
 #include "/home/xandao/Tweets-OpenMPI/libraries/list/manipulateList.h"
 #include "/home/xandao/Tweets-OpenMPI/libraries/files/manipulateFiles.h"
 
-#define ALLSIMILIARITY 1000000
-
-ListSimiliarity *indexOfJaccard(List*, char*);
+ListSimiliarity *indexOfJaccard(List*);
 
 #endif /* JACCARD_H */

@@ -1,5 +1,36 @@
 #include "manipulateList.h"
 
+List *specificTweets(List *list, char *range){
+	int start, end;
+	/* Pega o ínicio do intervalo */
+	char *parserRange = strtok(range, "-");
+	start = atoi(parserRange);
+
+	List* listOfTweets = (List*) malloc (sizeof(List*));
+
+	/* Inicializando na lista */
+	initializeList(listOfTweets);
+
+	/* Pega o fim do intervalo */
+    while(parserRange != NULL){
+    	end = atoi(parserRange);
+    	parserRange = strtok(NULL, "-");
+    }
+
+    Node *auxiliar = list -> first;
+    while(auxiliar != NULL){
+    	if(auxiliar -> id > end){
+    		break;
+    	}
+    	if(auxiliar -> id >= start && auxiliar -> id <= end){
+			insertTweetCompleteList(listOfTweets, auxiliar -> id, auxiliar -> originalTweet, auxiliar -> cleanTweet, auxiliar -> countWordOriginalTweet, auxiliar -> countWordCleanTweet);
+    	}
+    	auxiliar = auxiliar -> next;
+    }
+
+    return listOfTweets;
+}
+
 void cleanList(List *list){
     Node *temporary, *current;
     current = list -> first;
@@ -24,7 +55,7 @@ bool emptyList(List *list){
 }  
 
 void insertTweetList(List *list, char* tweet){
-	static int id = 1;
+	static int id = 0;
 	Node *newNode = (Node*) malloc(sizeof(Node));
 	newNode -> id = id;
 	strcpy(newNode -> originalTweet, tweet);
@@ -46,6 +77,27 @@ void insertTweetList(List *list, char* tweet){
 	id++;
 }
  
+void insertTweetCompleteList(List *list, int id, char* originalTweet, char *cleanTweet, int countWordOriginalTweet, int countWordCleanTweet){
+	Node *newNode = (Node*) malloc(sizeof(Node));
+	newNode -> id = id;
+	strcpy(newNode -> originalTweet, originalTweet);
+	strcpy(newNode -> cleanTweet, cleanTweet);
+	newNode -> countWordOriginalTweet = countWordOriginalTweet;
+	newNode -> countWordCleanTweet = countWordCleanTweet;
+
+	newNode -> next = NULL;
+
+	if (emptyList(list)){
+		list -> first = newNode;
+		list -> last = newNode;
+	} else {
+		list -> last -> next = newNode;
+		list -> last = newNode;
+	}
+
+	list -> size++;
+}
+
 int sizeList(List *list){
 	return (list -> size);
 }
@@ -130,4 +182,22 @@ void printListSimiliarity(ListSimiliarity *list){
 			printNode = printNode -> next;
 		}
 	}    
+}
+
+char *getSimiliarity(ListSimiliarity *list){
+	char *similiarity = (char*) malloc(sizeof(char) * ALLSIMILIARITY);
+	char range[SIZESTRING];
+	if (emptyListSimiliarity(list)){
+		printf(ANSI_COLOR_RED "Empty list!" ANSI_COLOR_RESET "\n");
+	} else {
+		NodeSimiliarity *printNode;
+		printNode = list -> first;
+		while (printNode != NULL){
+			sprintf(range, "%d-%d;", printNode -> firstId, printNode -> secondId);
+			strcat(similiarity, range);
+			memset(range, 0, SIZESTRING);
+			printNode = printNode -> next;
+		}
+	}    
+	return similiarity;
 }

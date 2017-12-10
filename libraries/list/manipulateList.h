@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include "/home/xandao/Tweets-OpenMPI/libraries/string/manipulateString.h"
 
+#define ALLSIMILIARITY 1000000
 #define ANSI_COLOR_RED "\x1b[31m"
 #define ANSI_COLOR_GREEN "\x1b[32m"
 #define ANSI_COLOR_RESET "\x1b[0m"
@@ -25,10 +26,12 @@ typedef struct{
 	int size;
 }List;
 
+List *specificTweets(List*, char*);
 void cleanList(List*);
 void initializeList(List*);
 bool emptyList(List*);
 void insertTweetList(List*, char*);
+void insertTweetCompleteList(List*, int, char*, char*, int, int);
 int sizeList(List*);
 void printList(List*);
 
@@ -54,5 +57,6 @@ bool emptyListSimiliarity(ListSimiliarity*);
 void insertTweetListSimiliarity(ListSimiliarity*, int, char*, int, char*, int, int, int);
 int sizeListSimiliarity(ListSimiliarity*);
 void printListSimiliarity(ListSimiliarity*);
+char *getSimiliarity(ListSimiliarity*);
 
 #endif /* MANIPULATELIST_H */

@@ -56,7 +56,7 @@ int countIntersectionTweets(char *firstTweet, char *secondTweet){
 	return countIntersection;
 }
 
-ListSimiliarity *indexOfJaccard(List* listOfTweets, char *nameFile){
+ListSimiliarity *indexOfJaccard(List* listOfTweets){
 	ListSimiliarity* listOfSimiliar = (ListSimiliarity*) malloc (sizeof(ListSimiliarity*));
 	Node *nodeFirst, *nodeSecond;
 	char firstTweetAuxiliar[SIZESTRING], secondTweetAuxiliar[SIZESTRING];

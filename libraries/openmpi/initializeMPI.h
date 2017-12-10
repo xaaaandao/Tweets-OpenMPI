@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <mpi.h>
-#include "/home/xandao/Tweets-OpenMPI/libraries/string/manipulateString.h"
+#include "/home/xandao/Tweets-OpenMPI/libraries/jaccard/jaccard.h"
 
-void initializeMPI(int);
+void initializeMPI(List*);
 
 
 #endif /* INITIALIZEMPI_H */
