@@ -56,11 +56,12 @@ int countIntersectionTweets(char *firstTweet, char *secondTweet){
 	return countIntersection;
 }
 
-List *indexOfJaccard(List* listOfTweets, char *nameFile){
-	List* listSimiliar = (List*) malloc (sizeof(List*));
+ListSimiliarity *indexOfJaccard(List* listOfTweets, char *nameFile){
+	ListSimiliarity* listOfSimiliar = (ListSimiliarity*) malloc (sizeof(ListSimiliarity*));
 	Node *nodeFirst, *nodeSecond;
 	char firstTweetAuxiliar[SIZESTRING], secondTweetAuxiliar[SIZESTRING];
-	double maxSimiliarity = 0;
+	
+	initializeListSimiliarity(listOfSimiliar);
 
 	/* Percorremos a lista */
 	nodeFirst = listOfTweets -> first;
@@ -86,17 +87,14 @@ List *indexOfJaccard(List* listOfTweets, char *nameFile){
 				int unionTweets = nodeFirst -> countWordCleanTweet + nodeSecond -> countWordCleanTweet;
 
 				double similiarity = (double)intersectionTweets / (double)unionTweets;
-				//printf("similiarity: %.2f\n", similiarity);
-				if(similiarity > maxSimiliarity){
-					maxSimiliarity = similiarity;
-				}
-
 				if(similiarity > 0.3){
-					printf("intersectionTweets: %d\n", intersectionTweets);
+					printf(ANSI_COLOR_GREEN "É similiar\n" ANSI_COLOR_RESET);			
+					/*printf("intersectionTweets: %d\n", intersectionTweets);
 					printf("unionTweets: %d\n", unionTweets);
 					printf("similiarity %.2f\n", similiarity);
 					printf("f: %s\n", nodeFirst -> cleanTweet);
-					printf("s: %s\n\n", nodeSecond -> cleanTweet);
+					printf("s: %s\n\n", nodeSecond -> cleanTweet);*/
+					insertTweetListSimiliarity(listOfSimiliar, nodeFirst -> id, nodeFirst -> originalTweet, nodeSecond -> id, nodeSecond -> originalTweet, intersectionTweets, unionTweets, similiarity);
 				}
 			}
 			
@@ -105,7 +103,6 @@ List *indexOfJaccard(List* listOfTweets, char *nameFile){
 
 		nodeFirst = nodeFirst -> next;
 	}
-	printf("max: %.2f\n", maxSimiliarity);
 
-	return listSimiliar;
+	return listOfSimiliar;
 }

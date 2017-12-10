@@ -30,8 +30,29 @@ void initializeList(List*);
 bool emptyList(List*);
 void insertTweetList(List*, char*);
 int sizeList(List*);
-int countElements(List*);
 void printList(List*);
 
+typedef struct nodeSimiliarity{
+	int firstId;
+	char firstTweet[SIZESTRING];
+	int secondId;
+	char secondTweet[SIZESTRING];
+	int valueIntersection;
+	int valueUnion;
+	int valueSimiliarity;
+	struct nodeSimiliarity *next;
+}NodeSimiliarity;
+
+typedef struct{
+	NodeSimiliarity *first, *last;
+	int size;
+}ListSimiliarity;
+
+void cleanListSimiliarity(ListSimiliarity*);
+void initializeListSimiliarity(ListSimiliarity*);
+bool emptyListSimiliarity(ListSimiliarity*);
+void insertTweetListSimiliarity(ListSimiliarity*, int, char*, int, char*, int, int, int);
+int sizeListSimiliarity(ListSimiliarity*);
+void printListSimiliarity(ListSimiliarity*);
 
 #endif /* MANIPULATELIST_H */

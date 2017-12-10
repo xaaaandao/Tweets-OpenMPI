@@ -3,6 +3,7 @@
 #include "libraries/files/manipulateFiles.h"
 #include "libraries/list/manipulateList.h"
 #include "libraries/jaccard/jaccard.h"
+#include "libraries/openmpi/initializeMPI.h"
 
 int main(int argc, char* argv[]){
 	/* Só aceito se tiver três parâmetros */
@@ -44,16 +45,18 @@ int main(int argc, char* argv[]){
 
 			/* Caso contrário, é um JSON */
 			} else {
-				/* Se for NULL significa que tem algo de errado no arquivo */
-				if(indexOfJaccard(listOfTweets, argv[2]) == NULL){
+				initializeMPI(listOfTweets -> size);
+				/*ListSimiliarity *listOfSimiliar = indexOfJaccard(listOfTweets, argv[2]);
+				
+				/* Se for nenhum significa que tem algo de errado no arquivo */
+				/*if(emptyListSimiliarity(listOfSimiliar)){
 					printf(ANSI_COLOR_RED "erro no arquivo %s\n" ANSI_COLOR_RESET, argv[2]);
 				} else {
-					printf("Pode prosseguir\n");
-				}
-				//printf("s: %d\n", listOfTweets -> size);
+					printListSimiliarity(listOfSimiliar);
+				}*/
 
 				/* Apaga o arquivo que só contém os tweets, sem estar no formato de JSON */
-				system("rm teste.txt");
+				//system("rm teste.txt");
 			}
 
 		/* Se não for nenhum dos parâmetros -q ou -f ERRO! */
