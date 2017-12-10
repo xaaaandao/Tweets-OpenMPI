@@ -7,7 +7,7 @@
 #include <string.h>
 #include "/home/xandao/Tweets-OpenMPI/libraries/list/manipulateList.h"
 
-int countLinesOfFile(char*);
+void clearScreen();
 List *loadTweets(char*);
 List *parserJSON(char*);
 

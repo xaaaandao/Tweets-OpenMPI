@@ -1,20 +1,7 @@
 #include "manipulateFiles.h"
 
-int countLinesOfFile(char *nameFile){
-	/* Abro o arquivo */
-	FILE *file = fopen(nameFile, "r");
-	int lines = 1, c;
-	
-	/* Percorro o arquivo contando as linhas */
-	while(!feof(file)){
-  		c = fgetc(file);
-  		if(c == '\n'){
-    		lines++;
-  		}
-	}
-
-	/* Retorno a quantidade de linhas */
-	return lines;
+void clearScreen(){
+	system("clear");
 }
 
 List *loadTweets(char *fileJSON){
@@ -27,20 +14,19 @@ List *loadTweets(char *fileJSON){
 	initializeList(listOfTweets);
 
 	while((fgets(tweet, sizeof(tweet), file)) != NULL){
+		clearScreen();
+		printf(ANSI_COLOR_GREEN "Carregando os tweets na lista\n" ANSI_COLOR_RESET);
 
 		/* Tirando o caractere " da última posição */
 		tweet[strlen(tweet) - 2] = '\0';
 		
 		/* Tirando o caractere " da primeira posição */
-		char newTweet[SIZESTRING] = "";
+		char newTweet[SIZESTRING];
 		strncpy(newTweet, tweet + 1, strlen(tweet) - 1);
 
-		/* Verifico se existe o tweet já na linha */
-		if(!existsTweet(listOfTweets, newTweet)){
-			/* Adicionando na lista */
-			insertTweetList(listOfTweets, newTweet);
-		}
-
+		/* Adicionando na lista */
+		insertTweetList(listOfTweets, newTweet);
+		
 		/* Limpando a string */
 		memset(tweet, 0, SIZESTRING);
 		memset(newTweet, 0, SIZESTRING);

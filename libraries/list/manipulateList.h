@@ -5,15 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include "/home/xandao/Tweets-OpenMPI/libraries/string/manipulateString.h"
 
 #define ANSI_COLOR_RED "\x1b[31m"
 #define ANSI_COLOR_GREEN "\x1b[32m"
 #define ANSI_COLOR_RESET "\x1b[0m"
-#define SIZESTRING 280
-
-#include "/home/xandao/Tweets-OpenMPI/libraries/string/manipulateString.h"
 
 typedef struct node{
+	int id;
 	char originalTweet[SIZESTRING];
 	char cleanTweet[SIZESTRING];
 	int countWordOriginalTweet;
@@ -26,13 +25,13 @@ typedef struct{
 	int size;
 }List;
 
-void getTweet(List*, int);
-bool existsTweet(List*, char*);
 void cleanList(List*);
 void initializeList(List*);
 bool emptyList(List*);
 void insertTweetList(List*, char*);
 int sizeList(List*);
+int countElements(List*);
 void printList(List*);
+
 
 #endif /* MANIPULATELIST_H */

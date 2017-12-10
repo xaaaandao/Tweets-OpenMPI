@@ -1,15 +1,5 @@
 #include "manipulateList.h"
 
-bool existsTweet(List *list, char *tweet){
-	Node *nodeAuxiliar = list -> first;
-	while (nodeAuxiliar != NULL){ 
-		if(strcmp(nodeAuxiliar -> originalTweet, tweet) == 0)
-			return true;
-		nodeAuxiliar = nodeAuxiliar -> next;
-	}
-	return false;
-}
-
 void cleanList(List *list){
     Node *temporary, *current;
     current = list -> first;
@@ -34,7 +24,9 @@ bool emptyList(List *list){
 }  
 
 void insertTweetList(List *list, char* tweet){
+	static int id = 1;
 	Node *newNode = (Node*) malloc(sizeof(Node));
+	newNode -> id = id;
 	strcpy(newNode -> originalTweet, tweet);
 	strcpy(newNode -> cleanTweet, filterWordsOfText(newNode -> originalTweet));
 	newNode -> countWordOriginalTweet = countWords(newNode -> originalTweet);
@@ -51,10 +43,21 @@ void insertTweetList(List *list, char* tweet){
 	}
 
 	list -> size++;
+	id++;
 }
  
 int sizeList(List *list){
 	return (list -> size);
+}
+
+int countElements(List* listOfTweets){
+	Node *auxiliarNode = listOfTweets -> first;
+	int count = 0;
+	while (auxiliarNode != NULL){ 
+		count++;
+		auxiliarNode = auxiliarNode -> next;
+	}
+	return count++;
 }
 
 void printList(List *list){
@@ -64,6 +67,7 @@ void printList(List *list){
 		Node *printNode;
 		printNode = list -> first;
 		while (printNode != NULL){ 
+			printf("ID: %d \n", printNode -> id);
 			printf("Tweet original: %s \n", printNode -> originalTweet);
 			printf("Quantidade de palavras tweet original: %d\n", printNode -> countWordOriginalTweet);
 			printf("Tweet filtrado: %s \n", printNode -> cleanTweet);
