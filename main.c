@@ -65,11 +65,11 @@ int main(int argc, char* argv[]){
 
 		/* Se não for nenhum dos parâmetros -q ou -f ERRO! */
 		} else
-			printf(ANSI_COLOR_RED "parâmetro errado!\nuse %s ou %s -q tema ou %s -f arquivo\n" ANSI_COLOR_RESET, argv[0], argv[0], argv[0]);
+			printf(ANSI_COLOR_RED "parâmetro errado!\nuse %s ou %s -q palavra ou %s -f arquivo\n" ANSI_COLOR_RESET, argv[0], argv[0], argv[0]);
 
 	/* Se a quantidade de parâmetros for diferente de três ERRO! */
 	} else if(argc > 3 || argc < 3)
-		printf(ANSI_COLOR_RED "use %s -q tema ou %s -f arquivo\n" ANSI_COLOR_RESET, argv[0], argv[0]);
+		printf(ANSI_COLOR_RED "use %s -q palavra ou %s -f arquivo\n" ANSI_COLOR_RESET, argv[0], argv[0]);
 	
 	return 0;
 }

@@ -384,3 +384,30 @@ char *getSimiliarity(ListSimiliarity *list){
 	/* Retorna a string */ 
 	return similiarity;
 }
+
+/**
+* A função existSimiliar(ListSimiliarity *list, int firstId, int secondId) recebe uma lista de tweets que são similiares,
+* e dois identificadores, em que é procurado um tweet com esses valores de identificadores
+* que foram recebido por parâmetro.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @param firstId, é um inteiro com o identificado do tweet que será procurado.
+* @return true ou false, true caso já esteja presente na lista e false caso não esteja presente.
+*/
+bool existSimiliar(ListSimiliarity *list, int firstId, int secondId){
+	/* Verifica se a lista é vazia */
+	if (emptyListSimiliarity(list)){
+		printf(ANSI_COLOR_RED "Empty list!" ANSI_COLOR_RESET "\n");
+	/* Se a lista não for vazia */
+	} else {
+		NodeSimiliarity *printNode;
+		printNode = list -> first;
+		/* Verifica se esses id's já estão presente na lista */
+		while (printNode != NULL){
+			if(printNode -> firstId == firstId && printNode -> secondId == secondId){
+				return true;
+			}
+			printNode = printNode -> next;
+		}
+	}  
+	return false;
+}

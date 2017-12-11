@@ -16,9 +16,9 @@
 * @param theme, é uma string na qual será pesquisado tweets com o assunto escolhido pelo usuário.
 * @return é void não retorna nada.
 */
-void generateTweets(char *theme){
+void generateTweets(char *word){
 	char command[] = "python searchTweets.py ";
-	strcat(command, theme);
+	strcat(command, word);
 	system(command);
 	system("cp output.json ../");
 }

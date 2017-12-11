@@ -73,5 +73,6 @@ void insertTweetListSimiliarity(ListSimiliarity*, int, char*, int, char*, int, i
 int sizeListSimiliarity(ListSimiliarity*);
 void printListSimiliarity(ListSimiliarity*);
 char *getSimiliarity(ListSimiliarity*);
+bool existSimiliar(ListSimiliarity*, int, int);
 
 #endif /* MANIPULATELIST_H */

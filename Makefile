@@ -8,9 +8,13 @@ compile:
 	cd libraries/jaccard && mpicc jaccard.c -c
 	mpicc main.c -lpthread -o main libraries/openmpi/initializeMPI.o libraries/tweets/generateTweets.o libraries/string/manipulateString.o libraries/files/manipulateFiles.o libraries/list/manipulateList.o libraries/jaccard/jaccard.o
 
-execute:
+execute-l:
 	make remove
-	mpirun -np $(NP) ./main -f dataset_A_SBSC_500.json
+	mpirun -np $(NP) ./main -f $(FILE)
+
+execute-r:
+	make remove
+	mpirun -np $(NP) -hosts $(IP) ./main -f $(FILE)
 
 remove:
 	rm -f teste.txt

@@ -131,8 +131,10 @@ ListSimiliarity *indexOfJaccard(List* listOfTweets){
 				/* Somente tweets com similiaridade maior que 0.3 são aceitos */
 				double similiarity = (double)intersectionTweets / (double)unionTweets;
 				if(similiarity > 0.3){
-					printf(ANSI_COLOR_GREEN "É similiar\n" ANSI_COLOR_RESET);			
-					insertTweetListSimiliarity(listOfSimiliar, nodeFirst -> id, nodeFirst -> originalTweet, nodeSecond -> id, nodeSecond -> originalTweet, intersectionTweets, unionTweets, similiarity);
+					printf(ANSI_COLOR_GREEN "É similiar\n" ANSI_COLOR_RESET);
+					/* Verifico se já está presente na lista */
+					if(!existSimiliar(listOfSimiliar, nodeFirst -> id, nodeSecond -> id) && !existSimiliar(listOfSimiliar, nodeSecond -> id, nodeFirst -> id))
+						insertTweetListSimiliarity(listOfSimiliar, nodeFirst -> id, nodeFirst -> originalTweet, nodeSecond -> id, nodeSecond -> originalTweet, intersectionTweets, unionTweets, similiarity);
 				}
 			}
 			
