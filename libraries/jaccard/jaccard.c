@@ -1,9 +1,21 @@
 #include "jaccard.h"
 
+/**
+* A função wordIsIntersection(char array[][SIZESTRING], char *word, int size)
+* recebe um vetor de string, uma string e o tamanho desse vetor, percorre se
+* todo o vetor verificando se existe a palavra nesse vetor, se existir
+* retorna true que significa que não pode ser adicionado no conjunto de intersecção
+* caso não tenha retorna false, que pode ser adicionado.
+* @param array[][SIZESTRING], é um vetor de string com todas as palavras presente em um tweet.
+* @param word, é uma string que irá ser verificada a presença dela no vetor de string.
+* @param size, é um inteiro com o tamanho do vetor de string. 
+* @return true ou false, true caso já esteja no vetor de string, false caso não esteja.
+*/
 bool wordIsIntersection(char array[][SIZESTRING], char *word, int size){
 	int i = 0;
 	/* Verifica se a palavra está no vetor de String */
 	while(i < size){
+		/* Verifica se a palavra está presente no vetor */
 		if(stringEquals(array[i], word)){
 			return true;
 		}
@@ -12,6 +24,15 @@ bool wordIsIntersection(char array[][SIZESTRING], char *word, int size){
 	return false;
 }
 
+/**
+* A função countIntersectionTweets(char *firstTweet, char *secondTweet)
+* recebe duas strings, que são dois tweets. Verifica quais palavras estão presente nas
+* duas string, sempre é verificado se a palavra já não está presente no conjunto de 
+* intersecção, por fim retorna a quantidade de palavras presentes no conjunto de intersecção.
+* @param firstTweet, é uma string que é um tweet em que irá ser feito a  intersecção com o outro parâmetro.
+* @param secondTweet, é uma string que é um tweet em que irá ser feito a intersecção com o outro parâmetro.
+* @return countIntersection, é um inteiro com o valor de quantidade elementos presente no conjunto de intersecção.
+*/
 int countIntersectionTweets(char *firstTweet, char *secondTweet){
 	/* Faz uma cópia para poder alterar */
 	char firstTweetAuxiliar[SIZESTRING], secondTweetAuxiliar[SIZESTRING];
@@ -53,14 +74,27 @@ int countIntersectionTweets(char *firstTweet, char *secondTweet){
 		}
 	}						
 
+	/* Retorna a quantidade de elementos no conjunto de intersecção */
 	return countIntersection;
 }
 
+/**
+* A função indexOfJaccard(List* listOfTweets) recebe uma lista de tweets,
+* em que irá ser verificado a similiaridade entre os tweets, dessa lista aplicando
+* o conceito de índice de Jaccard, em que consiste em duas operações a intersecção
+* e a união. A divisão dessas duas operações retorna um valor de 0 e 1, e só consideramos
+* similiares aqueles que o resultado dessa operação retorna um valor superior ao 0.3.
+* Tweets com valores superiores a 0.3 adicionamos em uma lista, que irá ser retornada.
+* @param listOfTweets, é uma lista de tweets, com todos os tweets presentes no arquivo que foi passado
+* por parâmetro quando rodamos o programa ou que foi gerado no nosso programa.
+* @return listOfSimiliar, é uma lista de tweets, mas todos aqueles que são similiares.
+*/
 ListSimiliarity *indexOfJaccard(List* listOfTweets){
 	ListSimiliarity* listOfSimiliar = (ListSimiliarity*) malloc (sizeof(ListSimiliarity*));
 	Node *nodeFirst, *nodeSecond;
 	char firstTweetAuxiliar[SIZESTRING], secondTweetAuxiliar[SIZESTRING];
 	
+	/* Inicializa a lista */
 	initializeListSimiliarity(listOfSimiliar);
 
 	/* Percorremos a lista */
@@ -86,23 +120,22 @@ ListSimiliarity *indexOfJaccard(List* listOfTweets){
 				printf(ANSI_COLOR_GREEN "Contando as uniões dos dois tweets\n" ANSI_COLOR_RESET);
 				int unionTweets = nodeFirst -> countWordCleanTweet + nodeSecond -> countWordCleanTweet;
 
+				/* Somente tweets com similiaridade maior que 0.3 são aceitos */
 				double similiarity = (double)intersectionTweets / (double)unionTweets;
 				if(similiarity > 0.3){
 					printf(ANSI_COLOR_GREEN "É similiar\n" ANSI_COLOR_RESET);			
-					/*printf("intersectionTweets: %d\n", intersectionTweets);
-					printf("unionTweets: %d\n", unionTweets);
-					printf("similiarity %.2f\n", similiarity);
-					printf("f: %s\n", nodeFirst -> cleanTweet);
-					printf("s: %s\n\n", nodeSecond -> cleanTweet);*/
 					insertTweetListSimiliarity(listOfSimiliar, nodeFirst -> id, nodeFirst -> originalTweet, nodeSecond -> id, nodeSecond -> originalTweet, intersectionTweets, unionTweets, similiarity);
 				}
 			}
 			
+			/* Vai para o próximo nó da lista */
 			nodeSecond = nodeSecond -> next;
 		}
 
+		/* Vai para o próximo nó da lista */
 		nodeFirst = nodeFirst -> next;
 	}
 
+	/* Retorna a lista de tweets similiares */
 	return listOfSimiliar;
 }

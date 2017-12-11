@@ -4,7 +4,8 @@ import sys
 ##
 # Autor: Alexandre Yuji Kajihara
 # Descricao: utilizamos uma API do twitter utilizando a linguagem de programacao python
-# para pegar os tweets sobre um determinado assunto.
+# para pegar os tweets sobre um determinado assunto. Obs: O compilador reclama
+# de comentarios e prints com acento, por isso nao colocamos.
 # Data de criacao: 24/11/2017
 # Data de atualizacao: 24/11/2017
 ##

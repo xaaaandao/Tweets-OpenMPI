@@ -1,5 +1,16 @@
 #include "manipulateList.h"
 
+/**
+* A função specificTweets(List *list, char *range) recebe uma lista de tweets, com todos os tweets
+* presentes no arquivo passado por parâmetro ou gerado durante a execução, e um intervalo de valores.
+* A partir desse intervalo, todos os tweets que tem o identificador nesse intervalo são adicionados
+* em uma lista e essa lista é retornada.
+* @param list, é uma lista de tweets, com todos os tweets presentes no arquivo que foi passado
+* por parâmetro quando rodamos o programa ou que foi gerado no nosso programa.
+* @param range, é uma string com intervalo de tweets que deve ser adicionados em uma lista.
+* @return listOfTweets, é uma lista de tweets, com todos os tweets presentes no intervalo que foi
+* passado por parâmetro.
+*/
 List *specificTweets(List *list, char *range){
 	int start, end;
 	/* Pega o ínicio do intervalo */
@@ -17,6 +28,7 @@ List *specificTweets(List *list, char *range){
     	parserRange = strtok(NULL, "-");
     }
 
+    /* Percorre a lista atrás de tweets que estão naquele intervalo */
     Node *auxiliar = list -> first;
     while(auxiliar != NULL){
     	if(auxiliar -> id > end){
@@ -28,32 +40,75 @@ List *specificTweets(List *list, char *range){
     	auxiliar = auxiliar -> next;
     }
 
+    /* Retorna a lista com os tweets daquele intervalo */
     return listOfTweets;
 }
 
+/**
+* A função cleanList(List *list) recebe uma lista de tweets, com todos os tweets
+* presentes no arquivo passado por parâmetro ou gerado durante a execução.
+* Percorre nó por nó da lista e dá um free nele, e por fim da um free na lista.
+* @param list, é uma lista de tweets, com todos os tweets presentes no arquivo que foi passado
+* por parâmetro quando rodamos o programa ou que foi gerado no nosso programa.
+* @return é void não retorna nada.
+*/
 void cleanList(List *list){
     Node *temporary, *current;
     current = list -> first;
+
+    /* Percorre a lista */
     while(current != NULL){
     	temporary = current -> next;
+    	/* Free nó da lista */
     	free(current);
     	current = temporary;
     }
+
+    /* Free na lista */
     free(list);
 }
 
+/**
+* A função cleanList(List *list) recebe uma lista de tweets, com todos os tweets
+* presentes no arquivo passado por parâmetro ou gerado durante a execução.
+* Inicializa essa lista apontando tudo para NULL.
+* @param list, é uma lista de tweets, com todos os tweets presentes no arquivo que foi passado
+* por parâmetro quando rodamos o programa ou que foi gerado no nosso programa.
+* @return é void não retorna nada.
+*/
 void initializeList(List *list){
+	/* Inicializa a lista */
 	list -> first = NULL;
 	list -> last = NULL;
 	list -> size = 0;
 }
 
+/**
+* A função emptyList(List *list) recebe uma lista de tweets, com todos os tweets
+* presentes no arquivo passado por parâmetro ou gerado durante a execução.
+* Verificando se a lista é vazia ou não, se for vazia retorna true caso contrário false.
+* @param list, é uma lista de tweets, com todos os tweets presentes no arquivo que foi passado
+* por parâmetro quando rodamos o programa ou que foi gerado no nosso programa.
+* @return true ou false, true caso seja vazia, false caso não seja.
+*/
 bool emptyList(List *list){
+	/* Verifica se a lista aponta para NULL, se sim ela está vazia */
 	if(list -> first == NULL)
 		return true;
 	return false;
 }  
 
+/**
+* A função insertTweetList(List *list, char* tweet) recebe uma lista de tweets
+* onde será adicionado o tweet recebido por parâmetro. A partir desse parâmetro que é
+* recebido será adicionado os outros valores nos outros campos do nó. Com o tweet original
+* removemos algumas palavras e caracteres indesejados e adicionamos no outro campo do nó
+* da lista e também contamos a quantidade de palavras após essa limpa do tweet original 
+* e adicionamos nó campo do nó da lista.
+* @param list, é uma lista de tweets onde será adiciona tweet, e outros valores a partir do tweet original.
+* @param tweet, é uma string com o conteúdo que estava presente no arquivo.
+* @return é void não retorna nada.
+*/
 void insertTweetList(List *list, char* tweet){
 	static int id = 0;
 	Node *newNode = (Node*) malloc(sizeof(Node));
@@ -76,7 +131,20 @@ void insertTweetList(List *list, char* tweet){
 	list -> size++;
 	id++;
 }
- 
+
+/**
+* A função insertTweetCompleteList(List *list, int id, char* originalTweet, char *cleanTweet, int countWordOriginalTweet, int countWordCleanTweet)
+* recebe uma lista de tweets, em que em cada nó é adicionado, o id, conteúdo original do tweet,
+* a quantidade de palavras presentes no tweet original, contéudo após a remoção de palavras e caracteres não necessários,
+* a quantidade de palavras presentes no tweet limpo.
+* @param list, é uma lista de tweets onde será adiciona todos parâmetros que foram recebidos.
+* @param id, é um inteiro com identificador do tweet.
+* @param originalTweet, é uma string com conteúdo original do tweet.
+* @param cleanTweet, é uma string com conteúdo do tweet após uma remoçaõ dos caracteres e palavras indesejadas.
+* @param countWordOriginalTweet, é uma inteiro com a quantidade de palavras presentes no tweet original.
+* @param countWordCleanTweet, é uma inteiro com a quantidade de palavras presentes no tweet limpo.
+* @return é void não retorna nada.
+*/
 void insertTweetCompleteList(List *list, int id, char* originalTweet, char *cleanTweet, int countWordOriginalTweet, int countWordCleanTweet){
 	Node *newNode = (Node*) malloc(sizeof(Node));
 	newNode -> id = id;
@@ -98,10 +166,28 @@ void insertTweetCompleteList(List *list, int id, char* originalTweet, char *clea
 	list -> size++;
 }
 
+/**
+* A função sizeList(List *list) recebe uma lista de tweets, com todos os tweets
+* presentes no arquivo passado por parâmetro ou gerado durante a execução,
+* e retorna a quantidade nós presentes na lista.
+* @param list, é uma lista de tweets, com todos os tweets presentes no arquivo que foi passado
+* por parâmetro quando rodamos o programa ou que foi gerado no nosso programa.
+* @return list -> size, que é um inteiro com o tamanho da lista.
+*/
 int sizeList(List *list){
 	return (list -> size);
 }
 
+/**
+* A função printList(List *list) recebe uma lista de tweets, com todos os tweets
+* presentes no arquivo passado por parâmetro ou gerado durante a execução. 
+* É impresso o conteúdo do tweet original, id do primeiro tweet, a quantidade de 
+* palavras presente no tweet original, tweet após a remoção de algumas palavras não necessárias,
+* e a quantidade de palavras após essa limpeza.
+* @param list, é uma lista de tweets, com todos os tweets presentes no arquivo que foi passado
+* por parâmetro quando rodamos o programa ou que foi gerado no nosso programa.
+* @return é void não retorna nada.
+*/
 void printList(List *list){
 	if (emptyList(list)){
 		printf(ANSI_COLOR_RED "Empty list!" ANSI_COLOR_RESET "\n");
@@ -119,31 +205,77 @@ void printList(List *list){
 	}    
 }
 
+/**
+* A função cleanListSimiliarity(ListSimiliarity *list) recebe uma lista de tweets que são similiares,
+* que foram obtidos aplicando o índice de Jaccard. Percorre nó por nó da lista
+* e dá um free nele, e por fim da um free na lista.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @return é void não retorna nada.
+*/
 void cleanListSimiliarity(ListSimiliarity *list){
     NodeSimiliarity *temporary, *current;
     current = list -> first;
+
+    /* Percorre a lista */
     while(current != NULL){
     	temporary = current -> next;
+    	/* Free nó da lista */
     	free(current);
     	current = temporary;
     }
+
+    /* Free na lista */
     free(list);
 }
 
+/**
+* A função initializeListSimiliarity(ListSimiliarity *list) recebe uma lista de tweets que são similiares,
+* que foram obtidos aplicando o índice de Jaccard. Inicializa essa lista apontando tudo para NULL.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @return é void não retorna nada.
+*/
 void initializeListSimiliarity(ListSimiliarity *list){
+	/* Inicializa a lista */
 	list -> first = NULL;
 	list -> last = NULL;
 	list -> size = 0;
 }
 
+/**
+* A função emptyListSimiliarity(ListSimiliarity *list) recebe uma lista de tweets que são similiares,
+* que foram obtidos aplicando o índice de Jaccard.
+* Verificando se a lista é vazia ou não, se for vazia retorna true caso contrário false.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @return true ou false, true caso seja vazia, false caso não seja.
+*/
 bool emptyListSimiliarity(ListSimiliarity *list){
+	/* Verifica se a lista aponta para NULL, se sim ela está vazia */
 	if(list -> first == NULL)
 		return true;
 	return false;
 }  
 
+/**
+* A função insertTweetListSimiliarity(ListSimiliarity *list, int firstId, char* firstTweet, int secondId, char* secondTweet, int valueIntersection, int valueUnion, int valueSimiliarity)
+* recebe uma lista de tweets onde serão adicionado os tweets que são similiares. Recebe
+* o id do primeiro tweet, conteúdo do primeiro tweet, id do segundo tweet, conteúdo do segundo tweet,
+* valor de união, interseccção e o valor de similiaridade, e adiciona todos esse parâmetros em um nó
+* que será adicionado na lista recebida por parâmetro.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @param firstId, é um inteiro com identificador do primeiro tweet.
+* @param firstTweet, é uma string com conteúdo do primeiro tweet.
+* @param secondId, é um inteiro com identificador do segundo tweet.
+* @param secondTweet, é uma string com conteúdo do segundo tweet.
+* @param valueIntersection, é um inteiro com o valor de intersecção desses dois tweets.
+* @param valueUnion, é um inteiro com o valor de união desses dois tweets.
+* @param valueSimiliarity, é um inteiro com o valor de similiaridade desses dois tweets.
+* @return é void não retorna nada.
+*/
 void insertTweetListSimiliarity(ListSimiliarity *list, int firstId, char* firstTweet, int secondId, char* secondTweet, int valueIntersection, int valueUnion, int valueSimiliarity){
+	/* Aloca um novo nó */
 	NodeSimiliarity *newNode = (NodeSimiliarity*) malloc(sizeof(NodeSimiliarity));
+
+	/* Copia os valores para os campos do novo nó */
 	newNode -> firstId = firstId;
 	strcpy(newNode -> firstTweet, firstTweet);
 	newNode -> secondId = secondId;
@@ -153,6 +285,7 @@ void insertTweetListSimiliarity(ListSimiliarity *list, int firstId, char* firstT
 	newNode -> valueSimiliarity = valueSimiliarity;
 	newNode -> next = NULL;
 
+	/* Adiciona na lista */
 	if (emptyListSimiliarity(list)){
 		list -> first = newNode;
 		list -> last = newNode;
@@ -164,14 +297,32 @@ void insertTweetListSimiliarity(ListSimiliarity *list, int firstId, char* firstT
 	list -> size++;
 }
  
+/**
+* A função sizeListSimiliarity(ListSimiliarity *list) recebe uma lista de tweets que são similiares,
+* que foram obtidos aplicando o índice de Jaccard, e retorna o seu tamanho.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @return list -> size, que é um inteiro com o tamanho da lista.
+*/
 int sizeListSimiliarity(ListSimiliarity *list){
+	/* Retorna o tamanho da lista */
 	return (list -> size);
 }
 
+/**
+* A função printListSimiliarity(ListSimiliarity *list) recebe uma lista de tweets que são similiares,
+* que foram obtidos aplicando o índice de Jaccard, e é impresso o conteúdo do primeiro tweet, id do
+* primeiro tweet, o conteúdo do segundo tweet, id do segundo tweet, valor de união, interseccção
+* e similiaridade de cada nó.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @return é void não retorna nada.
+*/
 void printListSimiliarity(ListSimiliarity *list){
+	/* Verifica se a lista é vazia */
 	if (emptyListSimiliarity(list)){
 		printf(ANSI_COLOR_RED "Empty list!" ANSI_COLOR_RESET "\n");
+	/* Se a lista não for vazia */
 	} else {
+		/* Percorre a lista e imprime o conteúdo de cada nó */
 		NodeSimiliarity *printNode;
 		printNode = list -> first;
 		while (printNode != NULL){
@@ -184,20 +335,31 @@ void printListSimiliarity(ListSimiliarity *list){
 	}    
 }
 
+/**
+* A função getSimiliarity(ListSimiliarity *list) recebe uma lista de tweets que são similiares,
+* que foram obtidos aplicando o índice de Jaccard, adiciona na string todos os identificadores dos
+* tweets que são similiares.
+* @param list, é uma lista de tweets que são similiares, que são obtidos pelo índice de Jaccard.
+* @return similiarity, é uma string com todos os valores dos identificadores que são similiares.
+*/
 char *getSimiliarity(ListSimiliarity *list){
 	char *similiarity = (char*) malloc(sizeof(char) * ALLSIMILIARITY);
 	char range[SIZESTRING];
+	/* Verifica se a lista é vazia */
 	if (emptyListSimiliarity(list)){
 		printf(ANSI_COLOR_RED "Empty list!" ANSI_COLOR_RESET "\n");
+	/* Se a lista não for vazia */
 	} else {
 		NodeSimiliarity *printNode;
 		printNode = list -> first;
+		/* Adiciona o identificador dos dois tweets que são similiares */
 		while (printNode != NULL){
 			sprintf(range, "%d-%d;", printNode -> firstId, printNode -> secondId);
 			strcat(similiarity, range);
 			memset(range, 0, SIZESTRING);
 			printNode = printNode -> next;
 		}
-	}    
+	}  
+	/* Retorna a string */ 
 	return similiarity;
 }

@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "generateTweets.h"
 
 void generateTweets(char *theme){
 	char command[] = "python searchTweets.py ";
