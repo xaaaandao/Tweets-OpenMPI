@@ -12,7 +12,7 @@ $ make compile
 ### Executar
 
 ```
-$ mpirun -np 1 main -f dataset_A_SBSC.json
+$ make execute NP="value > 0"
 
 ```
 
