@@ -17,7 +17,7 @@ void *waitMessage(void *args){
     MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, currentSlave, type, MPI_COMM_WORLD, &statusGlobal);
 
     /* Adiciona em uma string */
-    sprintf(numberOfSlave, "%d-", currentSlave);
+    sprintf(numberOfSlave, "Escravo %d: ", currentSlave);
     strcat(result, numberOfSlave);
     strcat(result, confirmMessage);
     strcat(result, "\n");
