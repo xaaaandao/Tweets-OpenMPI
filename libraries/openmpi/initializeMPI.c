@@ -12,7 +12,11 @@ void *waitMessage(void *args){
     int type = 99;
     memset(numberOfSlave, 0, SIZESTRING);
     memset(confirmMessage, 0, ALLSIMILIARITY);
+    
+    /* Fico aguardando a resposta */
     MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, currentSlave, type, MPI_COMM_WORLD, &statusGlobal);
+
+    /* Adiciona em uma string */
     sprintf(numberOfSlave, "%d-", currentSlave);
     strcat(result, numberOfSlave);
     strcat(result, confirmMessage);

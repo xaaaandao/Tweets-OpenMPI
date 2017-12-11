@@ -4,10 +4,7 @@ all:
 
 compile:
 	#Verifica se o arquivo existe
-	if [ -a teste.txt ] ; \
-	then \
-		rm teste.txt ; \
-	fi;
+	rm -f teste.txt
 	cd libraries/string && mpicc manipulateString.c -c
 	cd libraries/tweets && mpicc generateTweets.c -c
 	cd libraries/openmpi && mpicc initializeMPI.c -c

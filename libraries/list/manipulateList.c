@@ -110,16 +110,22 @@ bool emptyList(List *list){
 * @return é void não retorna nada.
 */
 void insertTweetList(List *list, char* tweet){
+	/* Identificador dos tweets */
 	static int id = 0;
+	
+	/* Aloca um novo nó */
 	Node *newNode = (Node*) malloc(sizeof(Node));
+	
+	/* Copia os valores para os campos do novo nó, limpa o tweet e conta a quantidade
+	de palavras nos dois twwets */
 	newNode -> id = id;
 	strcpy(newNode -> originalTweet, tweet);
 	strcpy(newNode -> cleanTweet, filterWordsOfText(newNode -> originalTweet));
 	newNode -> countWordOriginalTweet = countWords(newNode -> originalTweet);
 	newNode -> countWordCleanTweet = countWords(newNode -> cleanTweet);
-
 	newNode -> next = NULL;
 
+	/* Adiciona na lista */
 	if (emptyList(list)){
 		list -> first = newNode;
 		list -> last = newNode;
@@ -146,15 +152,18 @@ void insertTweetList(List *list, char* tweet){
 * @return é void não retorna nada.
 */
 void insertTweetCompleteList(List *list, int id, char* originalTweet, char *cleanTweet, int countWordOriginalTweet, int countWordCleanTweet){
+	/* Aloca um novo nó */
 	Node *newNode = (Node*) malloc(sizeof(Node));
+	
+	/* Copia os valores para os campos do novo nó */
 	newNode -> id = id;
 	strcpy(newNode -> originalTweet, originalTweet);
 	strcpy(newNode -> cleanTweet, cleanTweet);
 	newNode -> countWordOriginalTweet = countWordOriginalTweet;
 	newNode -> countWordCleanTweet = countWordCleanTweet;
-
 	newNode -> next = NULL;
 
+	/* Adiciona na lista */
 	if (emptyList(list)){
 		list -> first = newNode;
 		list -> last = newNode;
@@ -175,6 +184,7 @@ void insertTweetCompleteList(List *list, int id, char* originalTweet, char *clea
 * @return list -> size, que é um inteiro com o tamanho da lista.
 */
 int sizeList(List *list){
+	/* Retorna o tamanho da lista */
 	return (list -> size);
 }
 
@@ -189,11 +199,14 @@ int sizeList(List *list){
 * @return é void não retorna nada.
 */
 void printList(List *list){
+	/* Verifica se a lista é vazia */
 	if (emptyList(list)){
 		printf(ANSI_COLOR_RED "Empty list!" ANSI_COLOR_RESET "\n");
+	/* Se a lista não for vazia */
 	} else {
 		Node *printNode;
 		printNode = list -> first;
+		/* Percorre a lista e imprime o conteúdo de cada nó */
 		while (printNode != NULL){ 
 			printf("ID: %d \n", printNode -> id);
 			printf("Tweet original: %s \n", printNode -> originalTweet);
