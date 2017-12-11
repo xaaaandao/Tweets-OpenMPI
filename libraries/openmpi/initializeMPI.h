@@ -5,9 +5,10 @@
 #include <string.h>
 #include <pthread.h>
 #include <mpi.h>
-#include "/home/xandao/Tweets-OpenMPI/libraries/jaccard/jaccard.h"
+#include "/home/xandao/cloud/Tweets-OpenMPI/libraries/jaccard/jaccard.h"
 
 int currentSlave;
+static int allSlaveAnswers;
 MPI_Status statusGlobal;
 char result[ALLSIMILIARITY];
 

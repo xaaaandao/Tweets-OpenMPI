@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "/home/xandao/Tweets-OpenMPI/libraries/string/manipulateString.h"
+#include "/home/xandao/cloud/Tweets-OpenMPI/libraries/string/manipulateString.h"
 
 #define ALLSIMILIARITY 1000000
 #define ANSI_COLOR_RED "\x1b[31m"

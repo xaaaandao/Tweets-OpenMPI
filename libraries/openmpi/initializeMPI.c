@@ -2,16 +2,21 @@
 
 void *waitMessage(void *args){
     char confirmMessage[ALLSIMILIARITY];
+    char numberOfSlave[SIZESTRING];
     int type = 99;
+    memset(numberOfSlave, 0, SIZESTRING);
     memset(confirmMessage, 0, ALLSIMILIARITY);
     MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, currentSlave, type, MPI_COMM_WORLD, &statusGlobal);
-    printf("%s\n", confirmMessage);
+    sprintf(numberOfSlave, "%d-", currentSlave);
+    strcat(result, numberOfSlave);
     strcat(result, confirmMessage);
-    strcat(result, "\n\n\n");
-    //printf("\n");
+    strcat(result, "\n");
+    allSlaveAnswers++;
 }
 
 void initializeMPI(List* listOfTweets){
+    allSlaveAnswers = 0;
+
 	/* Inicializa o ambiente de MPI */
 	MPI_Init(NULL, NULL);
 
@@ -45,7 +50,6 @@ void initializeMPI(List* listOfTweets){
                 int i, divide = countTweets / (countProcess - 1);
                 int rest;
                 end = divide - 1;
-                //char c;
                 for(i = 1; i < countProcess; i++){
                     if((i == countProcess - 1) && ((countProcess - 1) % 2 != 0)){
                         end = countTweets - 1;
@@ -53,9 +57,6 @@ void initializeMPI(List* listOfTweets){
                     memset(message, 0, SIZESTRING);
                     sprintf(message, "%d-%d", start, end);
                     MPI_Send(message, strlen(message), MPI_CHAR, i, type, MPI_COMM_WORLD);
-                    //MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, i, type, MPI_COMM_WORLD, &status);
-                    //printf("%s\n", confirmMessage);
-                    //scanf(" %c", &c);
                     start = end + 1;
                     end = start + divide;
                     end--;
@@ -85,8 +86,6 @@ void initializeMPI(List* listOfTweets){
     
     /* Finaliza o ambiente do MPI */
     MPI_Finalize();
-    //printf("%s\n", result);
-    char c;
-    scanf(" %c", &c);
-    printf("%s\n", result);
+    if(allSlaveAnswers == countProcess - 1)
+        printf("%s\n", result);
 }

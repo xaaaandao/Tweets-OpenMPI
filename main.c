@@ -5,6 +5,13 @@
 #include "libraries/jaccard/jaccard.h"
 #include "libraries/openmpi/initializeMPI.h"
 
+
+/*
+* Para compilar: make compile
+* Para executar localmente: mpirun -np número_processos ./main -f dataset_A_SBSC_500.json
+* Antes de executar no cluster montar o diretório
+* Para executar no cluster: mpirun -np número_processos -hosts endereço ./main -f dataset_A_SBSC_500.json
+**/
 int main(int argc, char* argv[]){
 	/* Só aceito se tiver três parâmetros */
 	if(argc == 3){
@@ -45,19 +52,8 @@ int main(int argc, char* argv[]){
 
 			/* Caso contrário, é um JSON */
 			} else {
+				/* Inicializa o Open MPI */
 				initializeMPI(listOfTweets);
-				//printList(listOfTweets);
-				/*ListSimiliarity *listOfSimiliar = indexOfJaccard(listOfTweets, argv[2]);
-				
-				/* Se for nenhum significa que tem algo de errado no arquivo */
-				/*if(emptyListSimiliarity(listOfSimiliar)){
-					printf(ANSI_COLOR_RED "erro no arquivo %s\n" ANSI_COLOR_RESET, argv[2]);
-				} else {
-					printListSimiliarity(listOfSimiliar);
-				}*/
-
-				/* Apaga o arquivo que só contém os tweets, sem estar no formato de JSON */
-				//system("rm teste.txt");
 			}
 
 		/* Se não for nenhum dos parâmetros -q ou -f ERRO! */
