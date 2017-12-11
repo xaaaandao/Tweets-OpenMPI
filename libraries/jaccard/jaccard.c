@@ -1,6 +1,14 @@
 #include "jaccard.h"
 
 /**
+* Autor: Alexandre Yuji Kajihara
+* Descrição: Definimos as funções e implementamos elas para que possa
+* ser feito aplicado o índice de Jaccard.
+* Data de criaçãoo: 11/12/2017
+* Data de atualização: 11/12/2017
+**/
+
+/**
 * A função wordIsIntersection(char array[][SIZESTRING], char *word, int size)
 * recebe um vetor de string, uma string e o tamanho desse vetor, percorre se
 * todo o vetor verificando se existe a palavra nesse vetor, se existir

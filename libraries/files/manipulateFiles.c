@@ -1,6 +1,14 @@
 #include "manipulateFiles.h"
 
 /**
+* Autor: Alexandre Yuji Kajihara
+* Descrição: Definimos as funções e implementamos elas para que possa
+* ser feito a manipulação de arquivos.
+* Data de criaçãoo: 11/12/2017
+* Data de atualização: 11/12/2017
+**/
+
+/**
 * A função clearScreen() executa o comando no terminal de limpar a tela.
 * @param nenhum parâmetro.
 * @return é void não retorna nada.

@@ -1,6 +1,15 @@
 #include "initializeMPI.h"
 
 /**
+* Autor: Alexandre Yuji Kajihara
+* Descrição: Definimos as funções e implementamos elas para que possa
+* ser feito distribuído a tarefa entre o mestre e escravos, de acordo 
+* com a quantidade de escravos.
+* Data de criaçãoo: 11/12/2017
+* Data de atualização: 11/12/2017
+**/
+
+/**
 * A função waitMessage(void *args) é uma thread que fica esperando uma mensagem enviada
 * pelo escravo com a resposta dos tweets similiares.
 * @param *args, é um parâmetro do tipo void, sem utilização.

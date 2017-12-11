@@ -1,6 +1,14 @@
 #include "manipulateString.h"
 
 /**
+* Autor: Alexandre Yuji Kajihara
+* Descrição: Definimos as funções e implementamos elas para que possa
+* ser feito a manipulação de string.
+* Data de criaçãoo: 11/12/2017
+* Data de atualização: 11/12/2017
+**/
+
+/**
 * A função stringEquals(char* x, char* y) recebe duas strings, e será verificado
 * se ambas strings são iguais ou não, se sim retorna true caso contrário false.
 * @param x, é uma string que será verificaddo se é idêntica a string y.

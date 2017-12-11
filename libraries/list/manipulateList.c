@@ -1,6 +1,14 @@
 #include "manipulateList.h"
 
 /**
+* Autor: Alexandre Yuji Kajihara
+* Descrição: Definimos as funções e implementamos elas para que se tenha
+* um lugar para que possam ser armazenadas os tweets do arquivo de entrada.
+* Data de criaçãoo: 11/12/2017
+* Data de atualização: 11/12/2017
+**/
+
+/**
 * A função specificTweets(List *list, char *range) recebe uma lista de tweets, com todos os tweets
 * presentes no arquivo passado por parâmetro ou gerado durante a execução, e um intervalo de valores.
 * A partir desse intervalo, todos os tweets que tem o identificador nesse intervalo são adicionados

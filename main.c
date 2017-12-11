@@ -5,6 +5,13 @@
 #include "libraries/jaccard/jaccard.h"
 #include "libraries/openmpi/initializeMPI.h"
 
+/**
+* Autor: Alexandre Yuji Kajihara
+* Descrição: Verificamos qual parâmetro foi exigido pelo usuário, e chamamos as
+* funções de acordo com o parâmetro que foi solicitado pelo usuário.
+* Data de criaçãoo: 11/12/2017
+* Data de atualização: 11/12/2017
+**/
 
 /*
 * Para compilar: make compile
