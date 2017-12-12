@@ -87,6 +87,15 @@ List *parserJSON(char *nameFile){
 	return loadTweets("teste.txt");
 }
 
+/**
+* A função existVector(int array[], int value, int size) recebe um arranjo
+* na qual irá ser verificado se o elemento passado por parâmetro, está presente
+* ou não no arranjo.
+* @param array[], é uma vetor de inteiros onde será procurado o valor.
+* @param value, é o elemento a ser procurado no arranjo.
+* @param size, é o tamanho do vetor de inteiros.
+* @return true ou false, true caso exista o elemento no arranjo, e false caso não exista.
+*/
 bool existVector(int array[], int value, int size){
 	int i = 0;
 	while(i < size){
@@ -98,6 +107,14 @@ bool existVector(int array[], int value, int size){
 	return false;
 }
 
+/**
+* A função generateOutput(List *listOfTweets, char *tweets) recebe o vetor
+* com todos os tweets, e todos os tweets que são similares, com isso imprime
+* em um arquivo todos tweets que são similares.
+* @param listOfTweets, é uma lista com todos os tweets.
+* @param tweets, é uma string com os tweets que são similares.
+* @return true ou false, true caso consiga gerar o arquivo, e false caso não consiga.
+*/
 bool generateOutput(List *listOfTweets, char *tweets){
 	int value, i = 0, j = 0, k = 0;
 	int id[listOfTweets -> size];
