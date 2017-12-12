@@ -9,10 +9,17 @@ $ make compile
 
 ```
 
-### Executar
+### Executar localmente
 
 ```
-$ make execute NP="value > 0"
+$ make execute NP="value > 0" FILE="PATH to file JSON"
+
+```
+
+### Executar remotamente
+
+```
+$ make execute NP="value > 0" IP="IP_SLAVE" FILE="PATH to file JSON"
 
 ```
 
