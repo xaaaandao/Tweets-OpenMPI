@@ -26,10 +26,10 @@ void *waitMessage(void *args){
     MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, currentSlave, type, MPI_COMM_WORLD, &statusGlobal);
 
     /* Adiciona em uma string */
-    sprintf(numberOfSlave, "P(%d): ", currentSlave);
-    strcat(result, numberOfSlave);
+    /*sprintf(numberOfSlave, "P(%d): ", currentSlave);
+    strcat(result, numberOfSlave);*/
     strcat(result, confirmMessage);
-    strcat(result, "\n");
+    //strcat(result, "\n");
     allSlaveAnswers++;
 }
 
@@ -51,6 +51,7 @@ void *waitMessage(void *args){
 void initializeMPI(List* listOfTweets){
     /* Utilizada para verificar se todos os escravos já responderam */
     allSlaveAnswers = 0;
+    isDone = false;
 
 	/* Inicializa o ambiente de MPI */
 	MPI_Init(NULL, NULL);
@@ -69,7 +70,9 @@ void initializeMPI(List* listOfTweets){
         /* Se for só um processo eu mesmo tenho que executar */
         if(countProcess == 1){
             ListSimiliarity *listOfSimiliar = indexOfJaccard(listOfTweets);
-            printf("%s\n", getSimiliarity(listOfSimiliar));
+            //printf("%s\n", getSimiliarity(listOfSimiliar));
+            strcpy(result, getSimiliarity(listOfSimiliar));
+            isDone = true;
         /* Se for mais de um processo dividido */
         } else {
             char message[SIZESTRING];
@@ -80,7 +83,9 @@ void initializeMPI(List* listOfTweets){
                 sprintf(message, "%d-%d", start, end);
                 MPI_Send(message, strlen(message), MPI_CHAR, 1, type, MPI_COMM_WORLD); 
                 MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, 1, type, MPI_COMM_WORLD, &status);
-                printf("%s\n", confirmMessage);
+                //printf("%s\n", confirmMessage);
+                strcpy(result, confirmMessage);                
+                isDone = true;
             } else {
                 /* Se for mais de um processo */
                 int i, divide = countTweets / (countProcess - 1);
@@ -134,6 +139,9 @@ void initializeMPI(List* listOfTweets){
     MPI_Finalize();
  
     /* Verifico se todos os escravos responderam */
-    if(allSlaveAnswers == countProcess - 1)
-        printf("%s\n", result);
+    if((allSlaveAnswers == countProcess - 1) || isDone){
+        if(generateOutput(listOfTweets, result)){
+            printf(ANSI_COLOR_GREEN "Arquivo de saída gerado com sucesso! (arquivo: output.txt)\n" ANSI_COLOR_RESET);   
+        }
+    }
 }

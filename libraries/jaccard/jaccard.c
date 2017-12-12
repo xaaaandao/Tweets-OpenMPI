@@ -101,7 +101,8 @@ ListSimiliarity *indexOfJaccard(List* listOfTweets){
 	ListSimiliarity* listOfSimiliar = (ListSimiliarity*) malloc (sizeof(ListSimiliarity*));
 	Node *nodeFirst, *nodeSecond;
 	char firstTweetAuxiliar[SIZESTRING], secondTweetAuxiliar[SIZESTRING];
-	
+	double maxSimiliarity = 0;
+
 	/* Inicializa a lista */
 	initializeListSimiliarity(listOfSimiliar);
 
@@ -128,8 +129,8 @@ ListSimiliarity *indexOfJaccard(List* listOfTweets){
 				printf(ANSI_COLOR_GREEN "Contando as uniões dos dois tweets\n" ANSI_COLOR_RESET);
 				int unionTweets = nodeFirst -> countWordCleanTweet + nodeSecond -> countWordCleanTweet;
 
-				/* Somente tweets com similiaridade maior que 0.3 são aceitos */
 				double similiarity = (double)intersectionTweets / (double)unionTweets;
+				/* Somente tweets com similiaridade maior que 0.3 são aceitos */
 				if(similiarity > 0.3){
 					printf(ANSI_COLOR_GREEN "É similiar\n" ANSI_COLOR_RESET);
 					/* Verifico se já está presente na lista */
@@ -145,7 +146,7 @@ ListSimiliarity *indexOfJaccard(List* listOfTweets){
 		/* Vai para o próximo nó da lista */
 		nodeFirst = nodeFirst -> next;
 	}
-
+	
 	/* Retorna a lista de tweets similiares */
 	return listOfSimiliar;
 }

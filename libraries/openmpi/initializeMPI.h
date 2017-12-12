@@ -22,6 +22,8 @@ int currentSlave;
 static int allSlaveAnswers;
 MPI_Status statusGlobal;
 char result[ALLSIMILIARITY];
+bool isDone;
+static int maxS;
 
 /* Protótipos de funções */
 void *waitMessage(void*);

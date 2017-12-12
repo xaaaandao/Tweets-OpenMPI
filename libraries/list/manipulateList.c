@@ -375,7 +375,7 @@ char *getSimiliarity(ListSimiliarity *list){
 		printNode = list -> first;
 		/* Adiciona o identificador dos dois tweets que são similiares */
 		while (printNode != NULL){
-			sprintf(range, "%d-%d;", printNode -> firstId, printNode -> secondId);
+			sprintf(range, "%d-%d-", printNode -> firstId, printNode -> secondId);
 			strcat(similiarity, range);
 			memset(range, 0, SIZESTRING);
 			printNode = printNode -> next;

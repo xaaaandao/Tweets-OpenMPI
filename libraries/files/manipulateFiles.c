@@ -86,3 +86,70 @@ List *parserJSON(char *nameFile){
 	/* Retorno a lista de tweet */
 	return loadTweets("teste.txt");
 }
+
+bool existVector(int array[], int value, int size){
+	int i = 0;
+	while(i < size){
+		if(array[i] == value){
+			return true;
+		}
+		i++;
+	}
+	return false;
+}
+
+bool generateOutput(List *listOfTweets, char *tweets){
+	int value, i = 0, j = 0, k = 0;
+	int id[listOfTweets -> size];
+	char string[SIZESTRING];
+	
+	/* Remove o último hífen */
+	tweets[strlen(tweets) - 1] = '\0';
+
+	/* Percorre a string pegando os valores */
+	while(tweets[i] != '\0'){
+		if(tweets[i] == '-'){
+			string[j] = '\0';
+			if(k == 0){
+				id[k] = atoi(string);
+				k++;
+			} else {
+				if(!existVector(id, atoi(string), k)){
+					id[k] = atoi(string);
+					k++;
+				}
+			}
+			memset(string, 0, SIZESTRING);
+			j = 0; 
+		} else {
+			string[j] = tweets[i];
+			j++;
+		}
+		i++;
+	}
+
+	FILE *file = fopen("/home/xandao/cloud/Tweets-OpenMPI/output.txt", "w");
+	fprintf(file, "Tweet que são similares\n");
+	if (emptyList(listOfTweets)){
+		printf(ANSI_COLOR_RED "Empty list!" ANSI_COLOR_RESET "\n");
+		return false;
+	/* Se a lista não for vazia */
+	} else {
+		Node *printNode;
+		/* Percorre a lista e imprime o conteúdo de cada nó */
+		for(i = 0; i < k; i++){
+			printNode = listOfTweets -> first;
+			while (printNode != NULL){ 
+				/* Verifica se o valor do identificador tweet é igual ao que temos no vetor */
+				if(printNode -> id == id[i]){
+					fprintf(file, "Tweet: %s\n", printNode -> originalTweet);
+					break;
+				}
+				printNode = printNode -> next;
+			}	
+		}		
+	}
+
+	fclose(file);
+    return true;
+}

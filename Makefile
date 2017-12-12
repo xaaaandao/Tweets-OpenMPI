@@ -17,7 +17,8 @@ execute-r:
 	mpirun -np $(NP) -hosts $(IP) ./main -f $(FILE)
 
 remove:
-	rm -f teste.txt
+	rm -f /home/xandao/cloud/Tweets-OpenMPI/teste.txt 
+	rm -f /home/xandao/cloud/Tweets-OpenMPI/output.txt
 
 git:	
 	make remove
