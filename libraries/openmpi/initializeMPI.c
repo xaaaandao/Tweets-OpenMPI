@@ -26,10 +26,7 @@ void *waitMessage(void *args){
     MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, currentSlave, type, MPI_COMM_WORLD, &statusGlobal);
 
     /* Adiciona em uma string */
-    /*sprintf(numberOfSlave, "P(%d): ", currentSlave);
-    strcat(result, numberOfSlave);*/
     strcat(result, confirmMessage);
-    //strcat(result, "\n");
     allSlaveAnswers++;
 }
 
@@ -70,7 +67,6 @@ void initializeMPI(List* listOfTweets){
         /* Se for só um processo eu mesmo tenho que executar */
         if(countProcess == 1){
             ListSimiliarity *listOfSimiliar = indexOfJaccard(listOfTweets);
-            //printf("%s\n", getSimiliarity(listOfSimiliar));
             strcpy(result, getSimiliarity(listOfSimiliar));
             isDone = true;
         /* Se for mais de um processo dividido */
@@ -83,7 +79,6 @@ void initializeMPI(List* listOfTweets){
                 sprintf(message, "%d-%d", start, end);
                 MPI_Send(message, strlen(message), MPI_CHAR, 1, type, MPI_COMM_WORLD); 
                 MPI_Recv(confirmMessage, ALLSIMILIARITY, MPI_CHAR, 1, type, MPI_COMM_WORLD, &status);
-                //printf("%s\n", confirmMessage);
                 strcpy(result, confirmMessage);                
                 isDone = true;
             } else {

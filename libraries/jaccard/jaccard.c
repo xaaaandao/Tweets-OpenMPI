@@ -101,7 +101,6 @@ ListSimiliarity *indexOfJaccard(List* listOfTweets){
 	ListSimiliarity* listOfSimiliar = (ListSimiliarity*) malloc (sizeof(ListSimiliarity*));
 	Node *nodeFirst, *nodeSecond;
 	char firstTweetAuxiliar[SIZESTRING], secondTweetAuxiliar[SIZESTRING];
-	double maxSimiliarity = 0;
 
 	/* Inicializa a lista */
 	initializeListSimiliarity(listOfSimiliar);

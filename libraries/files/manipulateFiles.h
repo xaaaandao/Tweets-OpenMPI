@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include "/home/xandao/cloud/Tweets-OpenMPI/libraries/jaccard/jaccard.h"
 #include "/home/xandao/cloud/Tweets-OpenMPI/libraries/list/manipulateList.h"
 
 /* Protótipos de funções */
