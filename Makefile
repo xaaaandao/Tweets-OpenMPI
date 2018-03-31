@@ -20,10 +20,3 @@ remove:
 	rm -f /home/xandao/cloud/Tweets-OpenMPI/teste.txt 
 	rm -f /home/xandao/cloud/Tweets-OpenMPI/output.txt
 
-git:	
-	make remove
-	git checkout master
-	git pull origin master
-	git merge xandao
-	git push origin master
-	git checkout xandao
